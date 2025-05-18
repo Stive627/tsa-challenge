@@ -22,12 +22,7 @@ function Welcome() {
         <div className=' flex justify-center mt-18'>
             <button onClick={()=> challengeRouter.push('/challenge')} style={{backgroundColor:'rgba(199, 125, 255, 1)', fontSize:17, cursor:'pointer'}} className=' text-white px-5 py-2 rounded-lg'>Let&#39;s Begin</button>
         </div>
-        <div className=' block lg:hidden fixed bottom-0 w-screen z-20'>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#7B2CBF" fillOpacity="1" d="M0,96L80,122.7C160,149,320,203,480,202.7C640,203,800,149,960,117.3C1120,85,1280,75,1360,69.3L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-        </div>
-        <div className=' block lg:hidden fixed bottom-8 w-screen z-0 '>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#C77DFF" fillOpacity="1" d="M0,96L60,128C120,160,240,224,360,229.3C480,235,600,181,720,165.3C840,149,960,171,1080,176C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-        </div>
+
     </div>
   )
 }
