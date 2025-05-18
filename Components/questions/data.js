@@ -6,5 +6,9 @@ export   const data = [
     {question:"Which of the following is used to define a function in JavaScript?",
      suggestions:['fun myFunc() {}', 'def myFunc() {}', 'function myFunc() {}'],
      answer:2
+    },
+    {question:"What is the output of the expression type of null in JavaScript?",
+     suggestions:['object', 'null', 'undefined'],
+     answer:0
     }
   ] 

@@ -4,22 +4,24 @@ import Wave from '../Wave'
 import Image from 'next/image'
 import useScreen from '@/hooks/useScreen'
 import { useRouter } from 'next/navigation'
+import Detail from './Detail'
 
 function Result() {
   const {data} = useData()
   const large = useScreen()
   const [details, setDetails] = useState(false)
   const chRouter = useRouter()
-  const number = 50
+  const number = data.score
   const [percentage, setPercentage] = useState(0)
+  console.log(data)
   useEffect(()=>{
     if(percentage <number){
       const timeId = setTimeout(() => setPercentage(percentage + 1), 50);
       return () => clearTimeout(timeId)
     }
   },[percentage])
-  if(!data.score) return <p className=' text-center'>Answer the questions first</p>
-  if(details) return null
+  if(data.score===undefined) return <p className=' text-center'>Answer the questions first</p>
+  if(details) return <Detail userans={data.userAnswer}/>
   return (
     <>
       <Wave/>

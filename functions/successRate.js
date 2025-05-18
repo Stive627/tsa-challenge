@@ -1,4 +1,4 @@
-const successRate = (userAnswer, answers) => {
+export const successRate = (userAnswer, answers) => {
     const numberGoodAnswers = answers.reduce((a, c, i) =>{
         if(c === userAnswer[i]){
             return a + 1
