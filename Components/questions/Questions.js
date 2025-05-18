@@ -3,12 +3,13 @@ import { data } from './data'
 import Question from './Question'
 import './challenge.css'
 
-function Challenge() {
+function Questions() {
   const [userAnswer, setUserAnswer] = useState([])
   const questions = [...data]
   const percentage = (1/questions.length)*100
   const [currQuestion, setCurrQuestion] = useState({index:0, percent:percentage})  
   const correctAnswers = questions.map(elt => elt.answer)
+  const lastQuestion = currQuestion.index === questions.length -1
   function moveNext(){
     setCurrQuestion({...currQuestion, index:currQuestion.index + 1, percent:currQuestion.percent + percentage})
   }
@@ -25,6 +26,7 @@ function Challenge() {
   },[width])
   return (
     <>
+    <>
         <>
             <div className=' flex justify-center mt-8 lg:mt-10'>
                 <div style={{width:'600px'}} className=' relative h-7 '>
@@ -34,9 +36,10 @@ function Challenge() {
             </div>
             <p className=' mt-20 text-center font-semibold mb-12' style={{fontSize:24, color:'rgba(181, 23, 158, 1)'}}>JAVASCRIPT QUIZ</p>
         </>
-        {<Question key={data.indexOf(data[currQuestion.index])} question={data[currQuestion.index]} moveNext={moveNext}/>}
+        {<Question key={data.indexOf(data[currQuestion.index])} question={data[currQuestion.index]} moveNext={moveNext} lastQuestion={lastQuestion}/>}
+    </>
     </>
   )
 }
 
-export default Challenge
+export default Questions

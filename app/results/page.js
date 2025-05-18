@@ -1,11 +1,11 @@
 "use client"
-import Challenge from '@/Components/challenge/Challenge'
+import Result from '@/Components/results/Result'
 import React, { Suspense } from 'react'
 
 function page() {
   return (
     <Suspense>
-        <Challenge/>
+        <Result/>
     </Suspense>
   )
 }
