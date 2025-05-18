@@ -40,20 +40,23 @@ function Questions() {
     }
   },[width])
   return (
-    <>
-    <>
+    <div>
         <>
-            <div className=' flex justify-center mt-8 lg:mt-10'>
-                <div style={{width:'600px'}} className=' relative h-7 '>
-                    <div style={{backgroundColor:'rgba(217, 217, 217, 1)'}} className=' absolute w-full h-full rounded-2xl z-0'></div>
-                    <div ref={progressRef} style={{backgroundColor:'rgba(123, 44, 191, 1)'}} className=' absolute h-full rounded-2xl z-10 progress'></div>
-                </div>
-            </div>
-            <p className=' mt-20 text-center font-semibold mb-12' style={{fontSize:24, color:'rgba(181, 23, 158, 1)'}}>JAVASCRIPT QUIZ</p>
+            <div className=' flex justify-center mt-8 lg:mt-10 mb-20'>
+                <div style={{width:'600px'}}>
+                      <div className=' flex justify-between mb-4'>
+                        <p className=' text-center font-semibold' style={{fontSize:24, color:'rgba(181, 23, 158, 1)'}}>JAVASCRIPT QUIZ</p>
+                        <div className=' border border-black w-20 rounded-xl'></div>
+                      </div>
+                      <div className=' relative h-7 '>
+                          <div style={{backgroundColor:'rgba(217, 217, 217, 1)'}} className=' absolute w-full h-full rounded-2xl z-0'></div>
+                          <div ref={progressRef} style={{backgroundColor:'rgba(123, 44, 191, 1)'}} className=' absolute h-full rounded-2xl z-10 progress'></div>
+                      </div>
+                  </div>
+              </div>
         </>
         {<Question key={data.indexOf(data[currQuestion.index])} question={data[currQuestion.index]} handleClick={handleClick} lastQuestion={lastQuestion}/>}
-    </>
-    </>
+    </div>
   )
 }
 

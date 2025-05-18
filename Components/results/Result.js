@@ -13,7 +13,18 @@ function Result() {
   const chRouter = useRouter()
   const number = data.score
   const [percentage, setPercentage] = useState(0)
-  console.log(data)
+  function getMessage(){
+    if(number === 0){
+      return 'Better luck next time!'
+    }
+    if(number >0 &&  number < 50){
+      return 'Not bad, better luck next time'
+    }
+    if(number <100){
+      return 'Well done!'
+    }
+    return 'Bravo!, Perfect score'
+  }
   useEffect(()=>{
     if(percentage <number){
       const timeId = setTimeout(() => setPercentage(percentage + 1), 50);
@@ -21,7 +32,7 @@ function Result() {
     }
   },[percentage])
   if(data.score===undefined) return <p className=' text-center'>Answer the questions first</p>
-  if(details) return <Detail userans={data.userAnswer}/>
+  if(details) return <Detail goBack={()=>setDetails(false)} userans={data.userAnswer}/>
   return (
     <>
       <Wave/>
@@ -32,7 +43,7 @@ function Result() {
         <div className=' flex justify-center mt-10'>
           <Image width={large?400:300} height={300} src={'https://tsa-challenges.s3.ap-south-1.amazonaws.com/undraw_workspace_s6wf.svg'} alt='the picture for results'/>
         </div>
-        <p className=' text-center my-4' style={{color:'rgba(123, 44, 191, 1)'}}>Not bad, better luck next time</p>
+        <p className=' text-center my-4' style={{color:'rgba(123, 44, 191, 1)'}}>{getMessage()}</p>
         <div className=' flex justify-center'>
             <div className=' flex justify-between text-white gap-3'>
               <button onClick={()=> setDetails(true)} style={{backgroundColor:'rgba(157, 78, 221, 1)', width:'150px'}} className=' py-1 rounded-md cursor-pointer font-semibold'>Show Details</button>
