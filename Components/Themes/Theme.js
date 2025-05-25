@@ -19,6 +19,7 @@ function Theme() {
         }
         else{
             handleTheme('light')
+            setX(0)
             return;
         }
 
