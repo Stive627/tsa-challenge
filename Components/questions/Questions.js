@@ -5,6 +5,8 @@ import './challenge.css'
 import { useRouter } from 'next/navigation'
 import { useData } from '@/context/DataContext'
 import {successRate} from '../../functions/successRate'
+import Theme from '../Themes/Theme'
+import { useTheme } from '@/context/ThemeContext'
 
 function Questions() {
   const {handleData} = useData()
@@ -15,6 +17,7 @@ function Questions() {
   const correctAnswers = questions.map(elt => elt.answer)
   const lastQuestion = currQuestion.index === questions.length -1
   const chRouter = useRouter()
+  const {theme} = useTheme()
 
   function handleClick(value){
     if(lastQuestion){
@@ -40,13 +43,13 @@ function Questions() {
     }
   },[width])
   return (
-    <div>
+    <div style={{backgroundColor:theme === 'dark' ? 'rgba(13, 13, 13, 0.85)':'white'}} className='h-screen border'>
         <>
             <div className=' flex justify-center mt-8 lg:mt-10 mb-20'>
                 <div style={{width:'600px'}}>
                       <div className=' flex justify-between mb-4'>
                         <p className=' text-center font-semibold' style={{fontSize:24, color:'rgba(181, 23, 158, 1)'}}>JAVASCRIPT QUIZ</p>
-                        <div className=' border border-black w-20 rounded-xl'></div>
+                        <Theme/>
                       </div>
                       <div className=' relative h-7 '>
                           <div style={{backgroundColor:'rgba(217, 217, 217, 1)'}} className=' absolute w-full h-full rounded-2xl z-0'></div>

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import useScreen from '@/hooks/useScreen'
 import { useRouter } from 'next/navigation'
 import Detail from './Detail'
+import { useTheme } from '@/context/ThemeContext'
 
 function Result() {
   const {data} = useData()
@@ -13,6 +14,7 @@ function Result() {
   const chRouter = useRouter()
   const number = data.score
   const [percentage, setPercentage] = useState(0)
+  const {theme} = useTheme()
   function getMessage(){
     if(number === 0){
       return 'Better luck next time!'
@@ -36,7 +38,7 @@ function Result() {
   return (
     <>
       <Wave/>
-      <div className=' w-full mt-15'>
+      <div style={{backgroundColor:theme === 'dark' ? 'rgba(13, 13, 13, 0.85)':'white'}} className='w-full pt-15 h-screen'>
         <p style={{color:'rgba(181, 23, 158, 1)', fontSize:34}} className='text-center font-bold'>JAVASCRIPT QUIZ</p>
         <p style={{color:'rgba(123, 44, 191, 1)', fontSize:28}} className='text-center font-bold py-9'>Your Score</p>
         <div className=' flex justify-center text-white font-bold '><button style={{backgroundColor:'rgba(123, 44, 191, 1)', width:'100px'}} className='py-0.5 rounded-md'>{percentage} %</button></div>
