@@ -19,6 +19,7 @@ function Theme() {
         }
         else{
             handleTheme('light')
+            setCurr('Auto')
             setX(0)
             return;
         }
